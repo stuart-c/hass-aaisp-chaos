@@ -12,14 +12,14 @@ jobs:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Generate changelog
+      - name: Generate Changelog
         id: changelog
         uses: metcalfc/changelog-generator@v0.3.2
         with:
           myToken: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build project
+      - name: Create Archive
         run: |
-          zip --junk-paths hass-aaisp-chaos README.md
+          zip aaisp-chaos custom_component/
       - name: Create Release
         id: create_release
         uses: actions/create-release@latest
@@ -38,6 +38,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./hass-aaisp-chaos.zip
-          asset_name: hass-aaisp-chaos.zip
+          asset_path: ./aaisp-chaos.zip
+          asset_name: aaisp-chaos.zip
           asset_content_type: application/zip
