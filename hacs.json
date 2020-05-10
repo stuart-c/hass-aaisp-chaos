@@ -1,0 +1,7 @@
+{
+  "name": "Andrews & Arnold CHAOS",
+  "zip_release": true,
+  "filename": "hass-aaisp-chaos.zip",
+  "domains": ["sensor"],
+  "country": "GB"
+}
